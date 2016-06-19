@@ -1,0 +1,89 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #6C93A1;
+}
+
+header {
+    text-align: center;
+    padding: 10px;
+}
+
+header div {
+    padding: 5px;
+}
+
+section {
+    text-align: center;
+    padding: 3px;
+}
+
+section div {
+    display: inline;
+}
+
+span {
+    
+}
+
+div.title {
+    font-size: 500%;
+    font-weight: bold;
+}
+
+div.desc {
+    font-size: 200%;
+    font-weight: bold;
+}
+
+div.text {
+    font-size: 180%;
+    font-weight: 200%;
+}
+
+/* Style for <span> element of dropdown */
+.dropSpan {
+    background-color: #475E66;
+    color: #FFFFFF;
+    padding: 3px;
+    font-size: 160%;
+    font-weight: 200%;
+    font-style: italic;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #FFFFFF;
+}
+
+/* Positions the dropdown content within the containing <div> */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Actual dropdown content, hidden until hovered over */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #475E66;
+    margin-top: 5px;
+    min-width: 45px;
+    z-index: 9999;
+}
+
+/* Style for the <p> elements in the dropdown. 
+No padding or margin so they are right next to each other*/
+.dropdown-content p {
+    display: block;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* Changes background color of selection on hover, 
+so you know what element you are selecting */
+.dropdown-content p:hover {
+    background-color: #f1f1f1;
+}
+
+/* Shows the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
