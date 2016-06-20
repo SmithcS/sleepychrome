@@ -17,12 +17,35 @@ section {
     padding: 3px;
 }
 
-section div {
+button {
+    background-color: #475E66;
+    color: #FFFFFF;
+    border: none;
+    font-size: 160%;
+    font-weight: 200%;
+    margin-left: 20px;
+}
+
+ul {
+    display: inline;
+    list-style-type: none;
+    padding: 0px;
+
+}
+
+ul li  {
     display: inline;
 }
 
-span {
-    
+ul li p {
+    display: inherit;
+    font-size: 180%;
+    font-weight: 200%;
+    padding: 10px;
+}
+
+section div {
+    display: block;
 }
 
 div.title {
@@ -36,8 +59,14 @@ div.desc {
 }
 
 div.text {
+    display: inline;
     font-size: 180%;
     font-weight: 200%;
+}
+
+div.times {
+    padding-top: 30px;
+    padding-bottom: 10px;
 }
 
 /* Style for <span> element of dropdown */
@@ -46,10 +75,11 @@ div.text {
     color: #FFFFFF;
     padding: 3px;
     font-size: 160%;
+    width: 100%;
     font-weight: 200%;
     font-style: italic;
     border-style: solid;
-    border-width: 3px;
+    border-width: 1px;
     border-color: #FFFFFF;
 }
 
@@ -63,9 +93,12 @@ div.text {
 .dropdown-content {
     display: none;
     position: absolute;
+    font-size: 160%;
+    font-weight: 200%;
     background-color: #475E66;
-    margin-top: 5px;
-    min-width: 45px;
+    margin-top: 3px;
+    width: 100%;
+    overflow: auto;
     z-index: 9999;
 }
 
@@ -80,7 +113,7 @@ No padding or margin so they are right next to each other*/
 /* Changes background color of selection on hover, 
 so you know what element you are selecting */
 .dropdown-content p:hover {
-    background-color: #f1f1f1;
+    background-color: #9E9B9B;
 }
 
 /* Shows the dropdown menu on hover */
