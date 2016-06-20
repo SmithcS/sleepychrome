@@ -1,5 +1,6 @@
 
 function calculateWakeImmediate() {
+	//get current time 
 	var currentDate =  new Date();
 	var currentTime = currentDate.getTime();
 	var times = [];
@@ -7,21 +8,100 @@ function calculateWakeImmediate() {
 	// length of time in one sleep cycle (90 min) in ms 
 	var cycle = 5400*1000;
 	var elementId = "immWakeTime";
+
 	// calculates the time you should fall asleep. no need to write out own
 	// math for calculations - javascript built in Date functions work great
-	for (i = 0; i < 5; i++) {
-		sleepTime = currentTime+cycle + (900*1000);
+	for (i = 0; i < 6; i++) {
+		//account for the minutes it takes to fall asleep
+		if (i == 0) {
+			sleepTime = currentTime+cycle + (900*1000)
+		}
+		else {
+			sleepTime += cycle;
+		}
 		times[i] = new Date(sleepTime).toLocaleTimeString();
-		document.getElementById(elementId.concat(i+1)).innerHTML = times[i];
-		cycle += cycle;
+		// format so that all times strings will have a length of 11
+		if (times[i].length == 10) {
+			times[i] = "0" + times[i];
+		}
+		document.getElementById(elementId.concat(i+1)).innerHTML = (times[i].substr(0, 5) + " " + times[i].substr(-2));
 	}
 }
 
 function calculateWake() {
+	var hours = document.getElementById("wakeHour").textContent;
+	var minutes = document.getElementById("wakeMin").textContent;
+	var amPm = document.getElementById("wakeAmPm").textContent;
+	
+	if (amPm == "PM") {
+		hours += 12;
+	}
+
+	var date = new Date();
+	date.setHours(hours);
+	date.setMinutes(minutes);
+	date.setSeconds(0);
+
+	currentTime = date.getTime();
+
+	var cycle = 5400*1000;
+	var times = []
+	var elementId = "wakeTime";
+
+	//similar to the function calculateWakeImmediate() and calculateSleep(),
+	//but instead subtracting the cycle times
+	for (i = 0; i < 6; i++) {
+		if (i == 0) {
+			sleepTime = currentTime-cycle -(900*1000);
+		}
+		else {
+			sleepTime -= cycle;
+		}
+		times[i] = new Date(sleepTime).toLocaleTimeString();
+
+		if (times[i].length == 10) {
+			times[i] = "0" + times[i];
+		}
+		document.getElementById(elementId.concat(i+1)).innerHTML = (times[i].substr(0, 5) + " " + times[i].substr(-2));
+	}
+
 
 }
 
 function calculateSleep() {
+	var hours = document.getElementById("sleepHour").textContent;
+	var minutes = document.getElementById("sleepMin").textContent;
+	var amPm = document.getElementById("sleepAmPm").textContent;
+	
+	if (amPm == "PM") {
+		hours += 12;
+	}
+
+	var date = new Date();
+	date.setHours(hours);
+	date.setMinutes(minutes);
+	date.setSeconds(0);
+
+	currentTime = date.getTime();
+
+	var times = [];
+	var cycle = 5400*1000;
+	var elementId = "sleepTime";
+
+	for (i = 0; i < 6; i++) {
+		if (i == 0) {
+			sleepTime = currentTime+cycle + (900*1000)
+		}
+		else {
+			sleepTime += cycle;
+		}
+		times[i] = new Date(sleepTime).toLocaleTimeString();
+		if (times[i].length == 10) {
+			times[i] = "0" + times[i];
+		}
+		console.log(times[i]);
+		document.getElementById(elementId.concat(i+1)).innerHTML = (times[i].substr(0, 5) + " " + times[i].substr(-2));
+	}
 
 }
 
