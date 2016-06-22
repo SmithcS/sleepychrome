@@ -1,3 +1,4 @@
+var colorScheme = ["#203678", "#207178", "#FFB866", "#FFC466", "#FFE184", "#FFF584"];
 
 function calculateWakeImmediate() {
 	//get current time 
@@ -49,9 +50,9 @@ function calculateWake() {
 	var elementId = "wakeTime";
 
 	//similar to the function calculateWakeImmediate() and calculateSleep(),
-	//but instead subtracting the cycle times
-	for (i = 0; i < 6; i++) {
-		if (i == 0) {
+	//but instead subtracting the cycle times (working backwards)
+	for (i = 5; i >= 0; i--) {
+		if (i == 5) {
 			sleepTime = currentTime-cycle -(900*1000);
 		}
 		else {
@@ -62,9 +63,11 @@ function calculateWake() {
 		if (times[i].length == 10) {
 			times[i] = "0" + times[i];
 		}
-		document.getElementById(elementId.concat(i+1)).innerHTML = (times[i].substr(0, 5) + " " + times[i].substr(-2));
+		document.getElementById(elementId.concat(i)).innerHTML = (times[i].substr(0, 5) + " " + times[i].substr(-2));
+		document.getElementById(elementId.concat(i)).style.color = colorScheme[i];
 	}
 
+	document.getElementById("wakeTimes").className = "times";
 
 }
 
@@ -103,6 +106,7 @@ function calculateSleep() {
 		document.getElementById(elementId.concat(i+1)).innerHTML = (times[i].substr(0, 5) + " " + times[i].substr(-2));
 	}
 
+	document.getElementById("sleepTimes").className = "times";
 }
 
 window.onload = function() {

@@ -1,6 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+
+
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #6C93A1;
+    font-family: "Open Sans";
+    font-weight: 700;
+    background-color: #174C4F;
 }
 
 header {
@@ -51,16 +56,19 @@ section div {
 
 div.title {
     font-size: 500%;
-    font-weight: bold;
+    font-weight: 800;
+    color: #F5E9BE;
 }
 
 div.desc {
     font-size: 200%;
+    color: #F5E9BE;
     font-weight: bold;
 }
 
 div.text {
     display: inline;
+    color: #F5E9BE;
     font-size: 180%;
     font-weight: 200%;
 }
@@ -82,6 +90,12 @@ div.times {
     border-style: solid;
     border-width: 1px;
     border-color: #FFFFFF;
+}
+
+/* Div that is hidden until the user calculates time */
+.hidden {
+    display: none;
+    margin: 0px;
 }
 
 /* Positions the dropdown content within the containing <div> */
