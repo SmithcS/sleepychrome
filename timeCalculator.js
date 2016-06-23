@@ -1,4 +1,4 @@
-var colorScheme = ["#203678", "#207178", "#FFB866", "#FFC466", "#FFE184", "#FFF584"];
+var colorScheme = ["#13646B", "#207178", "#FFB866", "#FFC466", "#FFE184", "#FFF584"];
 
 function calculateWakeImmediate() {
 	//get current time 
@@ -26,6 +26,7 @@ function calculateWakeImmediate() {
 			times[i] = "0" + times[i];
 		}
 		document.getElementById(elementId.concat(i+1)).innerHTML = (times[i].substr(0, 5) + " " + times[i].substr(-2));
+		document.getElementById(elementId.concat(i+1)).style.color = colorScheme[i];
 	}
 }
 
@@ -67,7 +68,7 @@ function calculateWake() {
 		document.getElementById(elementId.concat(i)).style.color = colorScheme[i];
 	}
 
-	document.getElementById("wakeTimes").className = "times";
+	document.getElementById("wakeTimes").className = "times shadow-effect fadein";
 
 }
 
@@ -104,9 +105,10 @@ function calculateSleep() {
 		}
 		console.log(times[i]);
 		document.getElementById(elementId.concat(i+1)).innerHTML = (times[i].substr(0, 5) + " " + times[i].substr(-2));
+		document.getElementById(elementId.concat(i+1)).style.color = colorScheme[i];
 	}
 
-	document.getElementById("sleepTimes").className = "times";
+	document.getElementById("sleepTimes").className = "times shadow-effect fadein";
 }
 
 window.onload = function() {
@@ -128,21 +130,27 @@ window.onclick = function(event) {
 		switch (srcParentID) {
 			case "wakeHourDropdown":
 				document.getElementById("wakeHour").innerHTML = event.target.textContent;
+				document.getElementById("wakeHour").style.paddingRight = "7px";
 				break;
 			case "wakeMinDropdown":
 				document.getElementById("wakeMin").innerHTML = event.target.textContent;
+				document.getElementById("wakeMin").style.paddingRight = "7px";
 				break;
 			case "wakeAmPmDropdown":
 				document.getElementById("wakeAmPm").innerHTML = event.target.textContent;
+				document.getElementById("wakeAmPm").style.paddingRight = "7px";
 				break;
 			case "sleepHourDropdown":
 				document.getElementById("sleepHour").innerHTML = event.target.textContent;
+				document.getElementById("sleepHour").style.paddingRight = "7px";
 				break;
 			case "sleepMinDropdown":
 				document.getElementById("sleepMin").innerHTML = event.target.textContent;
+				document.getElementById("sleepMin").style.paddingRight = "7px";
 				break;
 			case "sleepAmPmDropdown":
 				document.getElementById("sleepAmPm").innerHTML = event.target.textContent;
+				document.getElementById("sleepAmPm").style.paddingRight = "7px";
 				break;
 			default:
 				break;

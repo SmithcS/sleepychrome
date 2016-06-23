@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "SleepChrome newtab extension",
+  "name": "SleepyChrome newtab extension",
   "description": "Lets you know when to fall asleep!",
   "version": "0.1",
 
